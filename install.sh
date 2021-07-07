@@ -114,6 +114,7 @@ main() {
     installpackages
     installgits
     configfiles
+    echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
 main
