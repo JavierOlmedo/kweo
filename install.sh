@@ -13,7 +13,7 @@ NC='\033[0m'
 fullsystemupdate(){
     echo "${GREEN}-----------------------[Updating system]-----------------------${NC}"
     sudo apt update -y && sudo apt autoremove -y && sudo apt upgrade -y && sudo apt dist-upgrade -y
-    echo "[+]Done!"
+    echo "${GREEN}[+] Updating system --> Done!${NC}"
 }
 
 # Main
