@@ -4,7 +4,7 @@
 #https://pastebin.com/EEX1Dsuq
 
 # Install
-# sh -c "$(wget -O- https://raw.githubusercontent.com/JavierOlmedo/kweo/master/install.sh)"
+# sh -c "$(curl -fsSL https://raw.githubusercontent.com/JavierOlmedo/kweo/master/install.sh)"
 
 # Colors
 RED='\033[0;31m'
@@ -16,7 +16,7 @@ NC='\033[0m'
 fullsystemupdate(){
     echo "${GREEN}-----------------------[Updating system]-----------------------${NC}"
     echo "${YELLOW}[+] Full system update${NC}"
-    sudo apt update -y && sudo apt autoremove -y && sudo apt upgrade -y && sudo apt dist-upgrade -y
+    sudo apt update -y && sudo apt list --upgradable -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
     echo "${GREEN}[+] Updating system --> Done!${NC}"
 }
 
