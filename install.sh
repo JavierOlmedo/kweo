@@ -1,13 +1,16 @@
 #!/bin/sh
 #by @jjavierolmedo
+#thanks to @S4vitar ;) - https://www.youtube.com/watch?v=mHLwfI1nHHY
+#https://pastebin.com/EEX1Dsuq
+
+# Install
+# sh -c "$(wget -O- https://raw.githubusercontent.com/JavierOlmedo/kweo/master/install.sh)"
 
 # Colors
 RED='\033[0;31m'
 YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 NC='\033[0m'
-
-# Check Kali Linux System
 
 # Full System Update
 fullsystemupdate(){
@@ -45,8 +48,6 @@ installgits(){
     git clone https://github.com/baskerville/bspwm.git
     echo "${YELLOW}[+] Downloading SXHKD from Github${NC}"
     git clone https://github.com/baskerville/sxhkd.git
-
-
     echo "${YELLOW}[+] Install BSPWM${NC}"
     cd ~/.tmp/bspwm
     make
@@ -56,16 +57,29 @@ installgits(){
     make
     sudo make install
     echo "${YELLOW}[+] Install BSPWM from APT${NC}"
-    sudo apt install bspwm
+    sudo apt install bspwm -y
     echo "${GREEN}[+] Install Gits --> Done!${NC}"
+    cd
+}
+
+configfiles(){
+    echo "${GREEN}-----------------------[Config files]-----------------------${NC}"
+    echo "${YELLOW}[+] Downloading BSPWM config file${NC}"
+    cd ~/.config/bspwm
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwmrc
+    chmod +x ~/.config/bspwm/bspwmrc
+    echo "${YELLOW}[+] Downloading SXHKD config file${NC}"
+    cd ~/.config/sxhkd
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkd
 }
 
 # Main
 main() {
     fullsystemupdate
-    makefolders
-    installpackages
-    installgits
+    #makefolders
+    #installpackages
+    #installgits
+    #configfiles
 }
 
 main
