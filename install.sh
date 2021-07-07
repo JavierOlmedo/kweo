@@ -16,7 +16,7 @@ NC='\033[0m'
 fullsystemupdate(){
     echo "${GREEN}-----------------------[Updating system]-----------------------${NC}"
     echo "${YELLOW}[+] Full system update${NC}"
-    sudo apt update -y && sudo apt list --upgradable -y && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
+    sudo apt update -y && sudo apt list --upgradable && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
     echo "${GREEN}[+] Updating system --> Done!${NC}"
 }
 
@@ -31,6 +31,8 @@ makefolders(){
     mkdir ~/.config/bspwm
     echo "${YELLOW}[+] Creating .config/sxhkd folder${NC}"
     mkdir ~/.config/sxhkd
+    echo "${YELLOW}[+] Creating .config/bspwm/scripts folder${NC}"
+    mkdir ~/.config/bspwm/scripts
     echo "${GREEN}[+] Make folders --> Done!${NC}"
 }
 
@@ -71,6 +73,11 @@ configfiles(){
     echo "${YELLOW}[+] Downloading SXHKD config file${NC}"
     cd ~/.config/sxhkd
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkd
+    echo "${YELLOW}[+] Downloading bspwm_resize file${NC}"
+    cd ~/.config/bspwm/scripts
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwm_resize
+    chmod +x ~/.config/bspwm/scripts/bspwm_resize
+    echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
 # Main
