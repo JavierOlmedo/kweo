@@ -114,7 +114,6 @@ main() {
     installpackages
     installgits
     configfiles
-    sudo reboot
 }
 
 main
