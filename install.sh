@@ -96,14 +96,14 @@ configfiles(){
     echo "${YELLOW}[+] Downloading BSPWM config file${NC}"
     cd ~/.config/bspwm
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwmrc
-    chmod +x ~/.config/bspwm/bspwmrc
+    sudo chmod +x ~/.config/bspwm/bspwmrc
     echo "${YELLOW}[+] Downloading SXHKD config file${NC}"
     cd ~/.config/sxhkd
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
     echo "${YELLOW}[+] Downloading bspwm_resize file${NC}"
     cd ~/.config/bspwm/scripts
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwm_resize
-    chmod +x ~/.config/bspwm/scripts/bspwm_resize
+    sudo chmod +x ~/.config/bspwm/scripts/bspwm_resize
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
