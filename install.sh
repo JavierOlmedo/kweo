@@ -154,10 +154,6 @@ installfonts(){
     fc-cache -v  
 }
 
-polybar(){
-
-}
-
 # Main
 main() {
     #fullsystemupdate
