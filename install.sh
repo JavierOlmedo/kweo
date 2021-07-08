@@ -33,6 +33,8 @@ makefolders(){
     mkdir ~/.config/sxhkd
     echo "${YELLOW}[+] Creating .config/bspwm/scripts folder${NC}"
     mkdir ~/.config/bspwm/scripts
+    echo "${YELLOW}[+] Creating .config/images folder${NC}"
+    mkdir ~/.config/images
     echo "${GREEN}[+] Make folders --> Done!${NC}"
 }
 
@@ -52,6 +54,8 @@ installpackages(){
     sudo apt install rofi -y
     echo "${YELLOW}[+] Install Firejail${NC}"
     sudo apt install firejail -y
+    echo "${YELLOW}[+] Install Feh${NC}"
+    sudo apt install feh -y
     echo "${GREEN}[+] Install Packages --> Done!${NC}"
 }
 
@@ -141,6 +145,18 @@ installfonts(){
     sudo rm Hack.zip  
 }
 
+background(){
+    mkdir ~/.config/images
+    cd ~/.config/images
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
+
+    echo "${YELLOW}[+] TEMPORALLLLLLLLLLLLLLLLL${NC}"
+    cd ~/.config/bspwm
+    rm ~/.config/bspwm/bspwmrc
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwmrc
+    sudo chmod +x ~/.config/bspwm/bspwmrc
+}
+
 # Main
 main() {
     #fullsystemupdate
@@ -149,7 +165,8 @@ main() {
     #installgits
     #configfiles
     #installfirefox
-    installfonts
+    #installfonts
+    background
     echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
