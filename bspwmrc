@@ -18,3 +18,5 @@ bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
 feh --bg-fil /home/jolmedo/.config/images/background.jpg
+~/.config/polybar/./launch.sh
+bspc config focus_follows_pointer true

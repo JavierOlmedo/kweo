@@ -35,6 +35,10 @@ makefolders(){
     mkdir ~/.config/bspwm/scripts
     echo "${YELLOW}[+] Creating .config/images folder${NC}"
     mkdir ~/.config/images
+    echo "${YELLOW}[+] Creating .config/polybar folder${NC}"
+    mkdir ~/.config/polybar
+    echo "${YELLOW}[+] Creating .config/picom folder${NC}"
+    mkdir ~/.config/picom
     echo "${GREEN}[+] Make folders --> Done!${NC}"
 }
 
@@ -93,6 +97,11 @@ installgits(){
     meson --buildtype=release . build
     ninja -C build
     sudo ninja -C build install
+    echo "${YELLOW}[+] Install Blue-Sky${NC}"
+    cd ~/.tmp
+    git clone https://github.com/VaughnValle/blue-sky.git
+    cd ~/.tmp/blue-sky/polybar
+    cp * -r ~/.config/polybar
     echo "${GREEN}[+] Install Gits --> Done!${NC}"
     cd
 }
@@ -110,6 +119,9 @@ configfiles(){
     cd ~/.config/bspwm/scripts
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwm_resize
     sudo chmod +x ~/.config/bspwm/scripts/bspwm_resize
+    echo "${YELLOW}[+] Downloading background image${NC}"
+    cd ~/.config/images
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
@@ -123,13 +135,6 @@ installfirefox(){
     rm firefox-89.0.2.tar.bz2
 
     #add foxyproxy and yeswehack
-
-    echo "${YELLOW}[+] TEMPORALLLLLLLLLLLLLLLLL${NC}"
-    sudo apt install firejail -y
-    rm ~/.config/sxhkd/sxhkdrc
-    cd ~/.config/sxhkd
-    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
-
 }
 
 installfonts(){
@@ -142,33 +147,29 @@ installfonts(){
     sudo unzip Fira_Code_v5.2.zip
     sudo unzip Hack.zip
     sudo rm Fira_Code_v5.2.zip
-    sudo rm Hack.zip  
+    sudo rm Hack.zip
+
+    cd ~/.tmp/blue-sky/polybar/fonts
+    sudo cp * /usr/share/fonts/truetype/
+    fc-cache -v  
 }
 
-background(){
-    mkdir ~/.config/images
-    cd ~/.config/images
-    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
+polybar(){
 
-    echo "${YELLOW}[+] TEMPORALLLLLLLLLLLLLLLLL${NC}"
-    cd ~/.config/bspwm
-    rm ~/.config/bspwm/bspwmrc
-    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwmrc
-    sudo chmod +x ~/.config/bspwm/bspwmrc
 }
 
 # Main
 main() {
     #fullsystemupdate
-    #makefolders
-    #installpackages
-    #installgits
-    #configfiles
-    #installfirefox
-    #installfonts
-    background
+    makefolders
+    installpackages
+    installgits
+    configfiles
+    installfirefox
+    installfonts
+
     echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
 main
-#22
+#250
