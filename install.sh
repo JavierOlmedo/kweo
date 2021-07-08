@@ -133,8 +133,8 @@ installfonts(){
     wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
     wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
     cd /usr/local/share/fonts
-    mv ~/Downloads/Fira_Code_v5.2.zip .
-    mv ~/Downloads/Hack.zip .
+    sudo mv ~/Downloads/Fira_Code_v5.2.zip .
+    sudo mv ~/Downloads/Hack.zip .
     unzip Fira_Code_v5.2.zip
     unzip Hack.zip
     rm Fira_Code_v5.2.zip
