@@ -118,11 +118,14 @@ installfirefox(){
     tar -xf firefox-89.0.2.tar.bz2
     rm firefox-89.0.2.tar.bz2
 
+    #add foxyproxy and yeswehack
+
     echo "${YELLOW}[+] TEMPORALLLLLLLLLLLLLLLLL${NC}"
     sudo apt install firejail -y
     rm ~/.config/sxhkd/sxhkdrc
     cd ~/.config/sxhkd
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
+
 }
 
 installfonts(){
