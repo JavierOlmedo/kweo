@@ -50,6 +50,8 @@ installpackages(){
     sudo apt install meson -y
     echo "${YELLOW}[+] Install Rofi${NC}"
     sudo apt install rofi -y
+    echo "${YELLOW}[+] Install Firejail${NC}"
+    sudo apt install firejail -y
     echo "${GREEN}[+] Install Packages --> Done!${NC}"
 }
 
@@ -107,13 +109,24 @@ configfiles(){
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
+installfirefox(){
+    sudo chown jolmedo:jolmedo opt/
+    cd Downloads
+    wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/89.0.2/linux-x86_64/en-US/firefox-89.0.2.tar.bz2
+    cd opt/
+    mv ~/Downloads/firefox-89.0.2.tar.bz2 .
+    tar -xf firefox-89.0.2.tar.bz2
+    rm firefox-89.0.2.tar.bz2
+}
+
 # Main
 main() {
-    fullsystemupdate
-    makefolders
-    installpackages
-    installgits
-    configfiles
+    #fullsystemupdate
+    #makefolders
+    #installpackages
+    #installgits
+    #configfiles
+    installfirefox
     echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
