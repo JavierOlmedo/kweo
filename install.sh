@@ -110,13 +110,18 @@ configfiles(){
 }
 
 installfirefox(){
-    sudo chown jolmedo:jolmedo opt/
-    cd Downloads
+    sudo chown jolmedo:jolmedo /opt
+    cd ~/Downloads
     wget https://download-installer.cdn.mozilla.net/pub/firefox/releases/89.0.2/linux-x86_64/en-US/firefox-89.0.2.tar.bz2
-    cd opt/
+    cd /opt
     mv ~/Downloads/firefox-89.0.2.tar.bz2 .
     tar -xf firefox-89.0.2.tar.bz2
     rm firefox-89.0.2.tar.bz2
+
+    # TEMPORALLLLLLLLLLLLLLLLL
+    echo "${YELLOW}[+] Downloading SXHKD config file${NC}"
+    cd ~/.config/sxhkd
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
 }
 
 # Main
