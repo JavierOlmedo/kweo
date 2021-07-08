@@ -20,3 +20,5 @@ bspc rule -a Screenkey manage=off
 feh --bg-fil /home/jolmedo/.config/images/background.jpg
 ~/.config/polybar/./launch.sh
 bspc config focus_follows_pointer true
+picom --experimental-backends &
+bspc config border_width 0

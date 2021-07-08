@@ -39,6 +39,8 @@ makefolders(){
     mkdir ~/.config/polybar
     echo "${YELLOW}[+] Creating .config/picom folder${NC}"
     mkdir ~/.config/picom
+    echo "${YELLOW}[+] Creating .config/bin folder${NC}"
+    mkdir ~/.config/bin
     echo "${GREEN}[+] Make folders --> Done!${NC}"
 }
 
@@ -122,6 +124,26 @@ configfiles(){
     echo "${YELLOW}[+] Downloading background image${NC}"
     cd ~/.config/images
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
+    echo "${YELLOW}[+] Downloading picom.conf${NC}"
+    cd ~/.config/picom
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/picom.conf
+    echo "${YELLOW}[+] Downloading workspace.ini${NC}"
+    cd ~/.config/polybar
+    rm workspace.ini
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/workspace.ini
+    echo "${YELLOW}[+] Downloading current.ini${NC}"
+    cd ~/.config/polybar
+    rm current.ini
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/current.ini
+    echo "${YELLOW}[+] Downloading launch.sh${NC}"
+    cd ~/.config/polybar
+    rm launch.sh
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/launch.sh
+    sudo chmod +x launch.sh
+    echo "${YELLOW}[+] Downloading ethernet_status.sh${NC}"
+    cd ~/.config/bin
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/ethernet_status.sh
+    sudo chmod +x ethernet_status.sh
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
