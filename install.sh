@@ -135,10 +135,10 @@ installfonts(){
     cd /usr/local/share/fonts
     sudo mv ~/Downloads/Fira_Code_v5.2.zip .
     sudo mv ~/Downloads/Hack.zip .
-    unzip Fira_Code_v5.2.zip
-    unzip Hack.zip
-    rm Fira_Code_v5.2.zip
-    rm Hack.zip  
+    sudo unzip Fira_Code_v5.2.zip
+    sudo unzip Hack.zip
+    sudo rm Fira_Code_v5.2.zip
+    sudo rm Hack.zip  
 }
 
 # Main
