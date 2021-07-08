@@ -125,6 +125,19 @@ installfirefox(){
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
 }
 
+installfonts(){
+    cd ~/Downloads
+    wget https://github.com/tonsky/FiraCode/releases/download/5.2/Fira_Code_v5.2.zip
+    wget https://github.com/ryanoasis/nerd-fonts/releases/download/v2.1.0/Hack.zip
+    cd /usr/local/share/fonts
+    mv ~/Downloads/Fira_Code_v5.2.zip .
+    mv ~/Downloads/Hack.zip .
+    unzip Fira_Code_v5.2.zip
+    unzip Hack.zip
+    rm Fira_Code_v5.2.zip
+    rm Hack.zip  
+}
+
 # Main
 main() {
     #fullsystemupdate
@@ -132,7 +145,8 @@ main() {
     #installpackages
     #installgits
     #configfiles
-    installfirefox
+    #installfirefox
+    installfonts
     echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
