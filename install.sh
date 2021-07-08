@@ -118,8 +118,9 @@ installfirefox(){
     tar -xf firefox-89.0.2.tar.bz2
     rm firefox-89.0.2.tar.bz2
 
-    # TEMPORALLLLLLLLLLLLLLLLL
-    echo "${YELLOW}[+] Downloading SXHKD config file${NC}"
+    echo "${YELLOW}[+] TEMPORALLLLLLLLLLLLLLLLL${NC}"
+    sudo apt install firejail -y
+    rm ~/.config/sxhkd/sxhkdrc
     cd ~/.config/sxhkd
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/sxhkdrc
 }
