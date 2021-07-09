@@ -128,3 +128,7 @@ alt + super + {Left,Down,Up,Right}
 # Open Firefox
 super + shift + f
     firejail /opt/firefox/firefox
+
+# Slimlock
+super + shift + x
+    slimlock

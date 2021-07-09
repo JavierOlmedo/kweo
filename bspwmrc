@@ -17,8 +17,9 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fil /home/jolmedo/.config/images/background.jpg
+feh --bg-fil /home/jolmedo/.config/images/background_desktop.jpg
 ~/.config/polybar/./launch.sh
 bspc config focus_follows_pointer true
 picom --experimental-backends &
-bspc config border_width 0
+bspc config border_width 1
+xsetroot -cursor_name left_ptr &

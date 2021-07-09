@@ -12,39 +12,38 @@ YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-# Full System Update
 fullsystemupdate(){
     echo "${GREEN}-----------------------[Updating system]-----------------------${NC}"
-    echo "${YELLOW}[+] Full system update${NC}"
+    echo "${YELLOW}-----------------------[Full system update]-----------------------${NC}"
     sudo apt update -y && sudo apt list --upgradable && sudo apt upgrade -y && sudo apt dist-upgrade -y && sudo apt autoremove -y
-    echo "${GREEN}[+] Updating system --> Done!${NC}"
+    echo "${GREEN}-----------------------[Updating system --> Done!]-----------------------${NC}"
 }
 
 # Make folders
 makefolders(){
     echo "${GREEN}-----------------------[Make folders]-----------------------${NC}"
-    echo "${YELLOW}[+] Creating .config folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config folder]-----------------------${NC}"
     mkdir ~/.config
-    echo "${YELLOW}[+] Creating .tmp folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .tmp folder]-----------------------${NC}"
     mkdir ~/.tmp
-    echo "${YELLOW}[+] Creating .config/bspwm folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/bspwm folder]-----------------------${NC}"
     mkdir ~/.config/bspwm
-    echo "${YELLOW}[+] Creating .config/sxhkd folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/sxhkd folder]-----------------------${NC}"
     mkdir ~/.config/sxhkd
-    echo "${YELLOW}[+] Creating .config/bspwm/scripts folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/bspwm/scripts folder]-----------------------${NC}"
     mkdir ~/.config/bspwm/scripts
-    echo "${YELLOW}[+] Creating .config/images folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/images folder]-----------------------${NC}"
     mkdir ~/.config/images
-    echo "${YELLOW}[+] Creating .config/polybar folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/polybar folder]-----------------------${NC}"
     mkdir ~/.config/polybar
-    echo "${YELLOW}[+] Creating .config/picom folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/picom folder]-----------------------${NC}"
     mkdir ~/.config/picom
-    echo "${YELLOW}[+] Creating .config/bin folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/bin folder]-----------------------${NC}"
     mkdir ~/.config/bin
-    echo "${YELLOW}[+] Creating .config/rofi/themes folder${NC}"
+    echo "${YELLOW}-----------------------[Creating .config/rofi/themes folder]-----------------------${NC}"
     mkdir ~/.config/rofi
     mkdir ~/.config/rofi/themes
-    echo "${GREEN}[+] Make folders --> Done!${NC}"
+    echo "${GREEN}-----------------------[Make folders --> Done!]-----------------------${NC}"
 }
 
 installpackages(){
@@ -135,9 +134,9 @@ configfiles(){
     cd ~/.config/bspwm/scripts
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/bspwm_resize
     sudo chmod +x ~/.config/bspwm/scripts/bspwm_resize
-    echo "${YELLOW}[+] Downloading background image${NC}"
+    echo "${YELLOW}[+] Downloading background_desktop image${NC}"
     cd ~/.config/images
-    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background_desktop.jpg
     echo "${YELLOW}[+] Downloading picom.conf${NC}"
     cd ~/.config/picom
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/picom.conf
@@ -166,9 +165,18 @@ configfiles(){
     cd ~/.config/polybar/scripts/themes
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/powermenu_alt.rasi
     sudo chmod +x powermenu_alt.rasi
+    echo "${YELLOW}[+] Downloading powermenu_alt${NC}"
+    cd ~/.config/polybar/scripts/themes
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/powermenu_alt
+    sudo chmod +x powermenu_alt
     echo "${YELLOW}[+] Copy nord.rasi${NC}"
     cp ~/.tmp/blue-sky/nord.rasi ~/.config/rofi/themes
     #rofi-theme-selector --> Nord --> Alt + A
+    echo "${YELLOW}[+] Downloading background${NC}"
+    cd /usr/share/slim/themes/default
+    sudo rm background.jpg
+    sudo wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/background.jpg
+    sudo chmod 644 background.jpg
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
@@ -210,9 +218,8 @@ main() {
     configfiles
     installfirefox
     installfonts
-
     echo "${GREEN}[+] Reboot your system and enjoy!!${NC}"
 }
 
 main
-#250
+#327 - 1:31:40
