@@ -41,6 +41,9 @@ makefolders(){
     mkdir ~/.config/picom
     echo "${YELLOW}[+] Creating .config/bin folder${NC}"
     mkdir ~/.config/bin
+    echo "${YELLOW}[+] Creating .config/rofi/themes folder${NC}"
+    mkdir ~/.config/rofi
+    mkdir ~/.config/rofi/themes
     echo "${GREEN}[+] Make folders --> Done!${NC}"
 }
 
@@ -62,6 +65,8 @@ installpackages(){
     sudo apt install firejail -y
     echo "${YELLOW}[+] Install Feh${NC}"
     sudo apt install feh -y
+    echo "${YELLOW}[+] Install Slim and slimlock${NC}"
+    sudo apt install slim libpam0g-dev libxrandr-dev libfreetype6-dev libimlib2-dev libxft-dev -y
     echo "${GREEN}[+] Install Packages --> Done!${NC}"
 }
 
@@ -104,6 +109,15 @@ installgits(){
     git clone https://github.com/VaughnValle/blue-sky.git
     cd ~/.tmp/blue-sky/polybar
     cp * -r ~/.config/polybar
+    echo "${YELLOW}[+] Install Slimlock${NC}"
+    cd ~/.tmp
+    git clone https://github.com/joelburget/slimlock.git
+    cd slimlock/
+    sudo make
+    sudo make install
+    sudo cp ~/.tmp/blue-sky/slim/slim.conf /etc/
+    sudo cp ~/.tmp/blue-sky/slim/slimlock.conf /etc
+    sudo cp -r default /usr/share/slim/themes
     echo "${GREEN}[+] Install Gits --> Done!${NC}"
     cd
 }
@@ -144,6 +158,17 @@ configfiles(){
     cd ~/.config/bin
     wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/ethernet_status.sh
     sudo chmod +x ethernet_status.sh
+    echo "${YELLOW}[+] Downloading hackthebox_status.sh${NC}"
+    cd ~/.config/bin
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/hackthebox_status.sh
+    sudo chmod +x hackthebox_status.sh
+    echo "${YELLOW}[+] Downloading powermenu_alt.rasi${NC}"
+    cd ~/.config/polybar/scripts/themes
+    wget https://raw.githubusercontent.com/JavierOlmedo/kweo/master/powermenu_alt.rasi
+    sudo chmod +x powermenu_alt.rasi
+    echo "${YELLOW}[+] Copy nord.rasi${NC}"
+    cp ~/.tmp/blue-sky/nord.rasi ~/.config/rofi/themes
+    #rofi-theme-selector --> Nord --> Alt + A
     echo "${GREEN}[+] Config files --> Done!${NC}"
 }
 
